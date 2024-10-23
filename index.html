@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="calculator">
+        <div class="tabs">
+            <button id="btn1" class="tab-button" onclick="showTab('tab1', 'btn1')">Kalkulator A/B</button>
+            <button id="btn2" class="tab-button" onclick="showTab('tab2', 'btn2')">Kalkulator A/B + C/D</button>
+            <button id="btn3" class="tab-button" onclick="showTab('tab3', 'btn3')">Kalkulator (A+6)/(B-4)</button>
+            <button id="btn4" class="tab-button" onclick="showTab('tab4', 'btn4')">Sprawdź parzystość</button>
+            <button id="btn5" class="tab-button" onclick="showTab('tab5', 'btn5')">Podzielność</button>
+            <button id="btn6" class="tab-button" onclick="showTab('tab6', 'btn6')">Sprawdź liczbę</button>
+            <button id="btn7" class="tab-button" onclick="showTab('tab7', 'btn7')">Największa liczba</button>
+            <button id="btn8" class="tab-button" onclick="showTab('tab8', 'btn8')">Uporządkuj liczby</button>
+        </div>
+        
+        <div id="tab1" class="tab-content">
+            <h2>Obliczanie wyniku równania x = a/b</h2>
+            <div class="input-box">
+                <label for="a1">Liczba A</label>
+                <input value="0" type="number" id="a1" placeholder="Wpisz liczbę A">
+            </div>
+            <div class="input-box">
+                <label for="b1">Liczba B</label>
+                <input value="0" type="number" id="b1" placeholder="Wpisz liczbę B">
+            </div>
+            <p id="error1" class="error">Nie mogę dzielić przez zero!</p>
+            <h2 id="AB">0</h2>
+            <button id="calculateAB">Oblicz</button>
+        </div>
+
+        <div id="tab2" class="tab-content">
+            <h2>Obliczanie wyniku równania x = a/b + c/d</h2>
+            <div class="input-box">
+                <label for="a2">Liczba A</label>
+                <input value="0" type="number" id="a2" placeholder="Wpisz liczbę A">
+            </div>
+            <div class="input-box">
+                <label for="b2">Liczba B</label>
+                <input value="0" type="number" id="b2" placeholder="Wpisz liczbę B">
+            </div>
+            <div class="input-box">
+                <label for="c2">Liczba C</label>
+                <input value="0" type="number" id="c2" placeholder="Wpisz liczbę C">
+            </div>
+            <div class="input-box">
+                <label for="d2">Liczba D</label>
+                <input value="0" type="number" id="d2" placeholder="Wpisz liczbę D">
+            </div>
+            <p id="error2" class="error">Nie mogę dzielić przez zero! Zmień wartość liczby <span id="letter"></span>!</p>
+            <h2 id="ABCD">0</h2>
+            <button id="calculateABCD">Oblicz</button>
+        </div>
+
+        <div id="tab3" class="tab-content">
+            <h2>x = (a + 6) / (b – 4)</h2>
+            <div class="input-box">
+                <label for="a">Liczba A</label>
+                <input value="0" type="number" id="a" placeholder="Wpisz liczbę A">
+            </div>
+            <div class="input-box">
+                <label for="b">Liczba B</label>
+                <input value="0" type="number" id="b" placeholder="Wpisz liczbę B">
+            </div>
+            <p id="error" class="error">Nie mogę odejmować od <span id="letter"></span>!</p>
+            <h1 id="ab64">0</h1>
+            <button id="calculate64">Oblicz</button>
+        </div>
+
+        <div id="tab4" class="tab-content">
+            <h2>Czy liczba jest parzysta?</h2>
+            <div class="input-box">
+                <label for="liczba">Wprowadź liczbę</label>
+                <input value="0" type="number" id="liczba" placeholder="Wpisz liczbę">
+            </div>
+            <h1 id="para"></h1>
+            <button id="yes-no">Oblicz</button>
+        </div>
+
+        <div id="tab5" class="tab-content">
+            <h2>Podzielna liczba</h2>
+            <div class="input-box">
+                <label for="aDzielic">Liczba A</label>
+                <input value="0" type="number" id="aDzielic" placeholder="Wpisz liczbę A">
+            </div>
+            <h1>/</h1>
+            <div class="input-box">
+                <label for="bDzielic">Liczba B</label>
+                <input value="0" type="number" id="bDzielic" placeholder="Wpisz liczbę B">
+            </div>
+            <p id="error3" class="error">Nie mogę dzielić przez zero!</p>
+            <h2 id="podzielna"></h2>
+            <button id="calculatePodzielna">Oblicz</button>
+        </div>
+
+        <div id="tab6" class="tab-content">
+            <h2>+ - or == 0</h2>
+            <div class="input-box">
+                <label for="numCheck">Wprowadź liczbę</label>
+                <input value="0" type="number" id="numCheck" placeholder="Wpisz liczbę">
+            </div>
+            <h1 id="resultCheck">0</h1>
+            <button id="checkNumber">Sprawdź</button>
+        </div>
+
+        <div id="tab7" class="tab-content">
+            <h2>Znajdź największą liczbę</h2>
+            <div class="input-box">
+                <label for="num1">Liczba 1</label>
+                <input value="0" type="number" id="num1" placeholder="Wpisz liczbę 1">
+            </div>
+            <div class="input-box">
+                <label for="num2">Liczba 2</label>
+                <input value="0" type="number" id="num2" placeholder="Wpisz liczbę 2">
+            </div>
+            <div class="input-box">
+                <label for="num3">Liczba 3</label>
+                <input value="0" type="number" id="num3" placeholder="Wpisz liczbę 3">
+            </div>
+            <h1 id="Najwout">0</h1>
+            <button id="znajdz">Znajdź</button>
+            <br>
+            <div id="thebox"></div>
+        </div>
+
+        <div id="tab8" class="tab-content">
+            <h2>Uporządkuj liczby</h2>
+            <div class="input-box">
+                <label for="liczba1">Liczba 1</label>
+                <input value="0" type="number" id="liczba1" placeholder="Wpisz liczbę 1">
+            </div>
+            <div class="input-box">
+                <label for="liczba2">Liczba 2</label>
+                <input value="0" type="number" id="liczba2" placeholder="Wpisz liczbę 2">
+            </div>
+            <div class="input-box">
+                <label for="liczba3">Liczba 3</label>
+                <input value="0" type="number" id="liczba3" placeholder="Wpisz liczbę 3">
+            </div>
+            <h1 id="sortOut">0</h1>
+            <button id="sort">Uporządkuj</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
